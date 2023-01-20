@@ -1,0 +1,40 @@
+<html>
+
+<body>
+
+<canvas id="gameCanvas" width='1200' height='700'></canvas>
+<script src="js/victor.js"></script>
+<script src="js/GraphicsCommon.js"></script>
+<script src="js/GeometryCommon.js"></script>
+<script src="js/Bird.js"></script>
+<script src="js/Main.js"></script>
+<script src="js/BirdBehaviour.js"></script>
+<script src="js/ObjectFunctions.js"></script>
+<form>
+    <label for="cohesion">Cohesion:</label>
+    <input type="range" id="cohesion" name="cohesion" min="0" max="0.5" step="0.01">
+
+    <label for="seperation">Seperaion:</label>
+    <input type="range" id="seperation" name="seperation" min="0" max="0.5" step="0.01">
+
+    <label for="allignment">allignment:</label>
+    <input type="range" id="allignment" name="allignment" min="0" max="0.5" step="0.005">
+
+    <label for="birdSeperationDistance">SeperaionDistance:</label>
+    <input type="range" id="SeperaionDistance" name="SeperaionDistance" min="0" max="100" step="2">
+
+    <label for="numberOfBirdsSlider"> number Of Birds Slider:</label>
+    <input type="range" id="numberOfBirdsSlider" name="numberOfBirdsSlider" min="0" max="30" step="1">
+
+    <label for="numberOfBirds" >number of Birds:</label>
+    <input type='number' id='numberOfBirds' name='numberOfBirds' placeholder='10' min="0" max="60">
+
+
+    <button type="button" id = 'behaviour'>Behaviour Values</button>
+</form>
+
+
+
+</body>
+
+</html>
