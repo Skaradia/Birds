@@ -10,15 +10,15 @@ const PHYSICAL_EDGE = 0;//5;//Math.PI/16;
 
 const EDGE_DISTANCE = 100;
 
-const SPEED = 6;
-const MOVE_AWAY = SPEED/3;
+var speed = 6;
+const MOVE_AWAY = speed/3;
 
 
 
 class bird{
     
     constructor() {
-        this.speed = SPEED;
+        this.speed = speed;
         
         this.x = 0;
         this.y = 0;
@@ -42,7 +42,7 @@ class bird{
         this.checkIfNearWalls();
 
         this.birdMoveVector.normalize();
-        this.birdMoveVector.multiplyScalar(SPEED);
+        this.birdMoveVector.multiplyScalar(speed);
 
 
         this.x = this.x+this.birdMoveVector.x;
@@ -72,7 +72,7 @@ class bird{
     }
 
     draw(){
-        //colourCircle(this.x, this.y, 4 , 'white')
+
         drawBitmapCentredWithRotation(birdPic, this.x,this.y, this.ang+Math.PI/2);//+Math.PI/2); //draw bird
     }
 
@@ -125,7 +125,7 @@ class bird{
 
         this.birdMoveVector.add(addedVector);
         this.birdMoveVector.normalize();
-        this.birdMoveVector.multiplyScalar(SPEED);  
+        this.birdMoveVector.multiplyScalar(speed);  
     }
     
     returnMoveVector(){

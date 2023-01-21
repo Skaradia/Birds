@@ -7,7 +7,7 @@ const GOLDILOCKS_ZONE_MAGNITUDE = 0.0;
 
 function allignment(object1Num, object2Num){
 
-    var allignmentAngleChange = (document.getElementById("allignment").value) * (SPEED/6);
+    var allignmentAngleChange = (document.getElementById("allignment").value) * (speed/6);
     
     
     bird1Vector = birdNames[object1Num].returnMoveVector();
@@ -15,14 +15,6 @@ function allignment(object1Num, object2Num){
 
 
     angleDifference = findSmallestAngDifference(birdNames[object1Num].verticalAngle(), birdNames[object2Num].verticalAngle());
-/*
-    if(angleDifference<Math.PI/6){
-        allignmentAngleChange = 0;
-    }else if(((0.4*angleDifference)-0.3)<0){
-        allignmentAngleChange = 0;
-    }else{
-        allignmentAngleChange=(0.4*angleDifference)-0.3;
-    }*/
 
 
     birdNames[object1Num].addVector(bird2Vector[0],bird2Vector[1], allignmentAngleChange);
@@ -32,27 +24,25 @@ function allignment(object1Num, object2Num){
 
 //SEPERATION FUNCTION
 
-function seperation(bird1Num, bird2Num, birdDistance){
+function separation(bird1Num, bird2Num, birdDistance){
 
-    var seperationAngleChange = (document.getElementById("seperation").value) * (SPEED/2);
+    var separationAngleChange = (document.getElementById("separation").value) * (speed/2);
 
-    if(birdDistance>seperationDistance-BIRD_GOLDILOCKS_ZONE){
-        var seperationAngleChange = GOLDILOCKS_ZONE_MAGNITUDE;//(document.getElementById("seperation").value) * (SPEED/2);
+    if(birdDistance>separationDistance-BIRD_GOLDILOCKS_ZONE){
+        var separationAngleChange = GOLDILOCKS_ZONE_MAGNITUDE;
     }
-
-    //seperationAngleChange = -(0.008*birdDistance*SPEED/2)+(SPEED/2);//40/(3*birdDistance);//(document.getElementById("seperation").value);
 
     let bird1Coordinates = getCoordinateOfObject(bird1Num);
     let bird2Coordinates = getCoordinateOfObject(bird2Num);
 
-    birdNames[bird1Num].moveAwayFromCoordinate(bird2Coordinates, seperationAngleChange);
-    birdNames[bird2Num].moveAwayFromCoordinate(bird1Coordinates, seperationAngleChange);
+    birdNames[bird1Num].moveAwayFromCoordinate(bird2Coordinates, separationAngleChange);
+    birdNames[bird2Num].moveAwayFromCoordinate(bird1Coordinates, separationAngleChange);
 }
 
 //COHESION FUNCTION
 
 function cohesion(validBirdsList){
-    var cohesionMagnitude = (document.getElementById("cohesion").value) * (SPEED/2);
+    var cohesionMagnitude = (document.getElementById("cohesion").value) * (speed/2);
 
     averageCoordinates = getAverageCoordinatesFromObjectList(validBirdsList);
 
@@ -62,7 +52,7 @@ function cohesion(validBirdsList){
         birdCoordinates = getCoordinateOfObject(birdNumber);
         birdDistance = distBetweenCoordinates(birdCoordinates, averageCoordinates);
 
-        if(birdDistance<seperationDistance+BIRD_GOLDILOCKS_ZONE){
+        if(birdDistance<separationDistance+BIRD_GOLDILOCKS_ZONE){
             var cohesionMagnitude = GOLDILOCKS_ZONE_MAGNITUDE;
         }
 

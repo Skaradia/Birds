@@ -4,7 +4,7 @@ var canvas, canvasContext;
 
 var numberOfBirds = 0;
 
-var  seperationDistance = 25;
+var  separationDistance = 25;
 var newNumberofBirds;
 
 const BIRD_SIGHT_DISTANCE = 100;
@@ -21,8 +21,10 @@ var behaviourButton;
 
 var birdNames = [];
 
+
 var backgroundPic = document.createElement("img");
 backgroundPic.src = "images/sky.jpg";
+var displayingBirds = true;
 
 
 
@@ -72,6 +74,8 @@ function updateAll(){
 	changeNumberOfBirds();
 
 	birdBehaviour();
+
+	speed = (document.getElementById("birdSpeed").value);
 	
 	for (let i=0;i<birdNames.length;i++) { // draw and move all birds
 		birdNames[i].move();
@@ -83,7 +87,7 @@ function updateAll(){
 
 function birdBehaviour() {
 
-	seperationDistance = (document.getElementById("SeperaionDistance").value);
+	separationDistance = (document.getElementById("separationDistance").value);
 
 	for(i=0;i<birdNames.length;i++){	
 
@@ -96,10 +100,10 @@ function birdBehaviour() {
 			if(i!=j) {
 				if (DISTANCE_BETWEEN_BIRDS <= BIRD_SIGHT_DISTANCE) {
 				
-					if(DISTANCE_BETWEEN_BIRDS <= seperationDistance){//bird is too close
-						seperation(i,j,DISTANCE_BETWEEN_BIRDS);
+					if(DISTANCE_BETWEEN_BIRDS <= separationDistance){//bird is too close
+						separation(i,j,DISTANCE_BETWEEN_BIRDS);
 						lineColour = 'yellow';
-					}else if(DISTANCE_BETWEEN_BIRDS > seperationDistance){
+					}else if(DISTANCE_BETWEEN_BIRDS > separationDistance){
 
 						allignment(i,j);
 						validBirds.push(j);
@@ -157,3 +161,19 @@ function changeNumberOfBirds(){
 
 	numberOfBirds = newNumberofBirds;
 }
+
+function changeBirdsToFish(){
+
+	if(displayingBirds){
+		backgroundPic.src = "images/pond.jpg";
+		birdPic.src="images/fish.png";
+		displayingBirds = false;
+		birdFishButton.innerText = 'Change to Birds'
+	}else{
+		backgroundPic.src = "images/sky.jpg";
+		birdPic.src="images/starling.png";
+		displayingBirds = true;
+		birdFishButton.innerText = 'Change to Fish'
+	}
+}
+
