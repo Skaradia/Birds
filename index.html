@@ -14,17 +14,26 @@
     <label for="cohesion">Cohesion:</label>
     <input type="range" id="cohesion" name="cohesion" min="0" max="0.5" step="0.01">
 
-    <label for="seperation">Seperaion:</label>
-    <input type="range" id="seperation" name="seperation" min="0" max="0.5" step="0.01">
+    <label for="separation">Separaion:</label>
+    <input type="range" id="separation" name="separation" min="0" max="0.5" step="0.01">
 
-    <label for="allignment">allignment:</label>
+    <label for="allignment">Allignment:</label>
     <input type="range" id="allignment" name="allignment" min="0" max="0.5" step="0.005">
 
-    <label for="birdSeperationDistance">SeperaionDistance:</label>
-    <input type="range" id="SeperaionDistance" name="SeperaionDistance" min="0" max="100" step="2">
+    <label for="birdseparationDistance">Separation Distance:</label>
+    <input type="range" id="separationDistance" name="separationDistance" min="0" max="60" step="2">
 
-    <label for="numberOfBirdsSlider"> number Of Birds Slider:</label>
+    <label for="numberOfBirdsSlider"> Number of birds:</label>
     <input type="range" id="numberOfBirdsSlider" name="numberOfBirdsSlider" min="0" max="30" step="1">
+
+    <label for="birdSpeed"> Speed:</label>
+    <input type="range" id="birdSpeed" name="birdSpeed" min="0.1" max="10" step="0.3">
+
+
+    <div>
+        <button id='birdFishButton' onclick="changeBirdsToFish();return false;">Birds to Fish</button>
+      </div>
+
 </form>
 
 
